@@ -22,7 +22,7 @@ node {
     }
     
     stage('Twistlock Publish') {
-          twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'kllrshrk*', key: '', logLevel: 'true', timeout: 10
+        twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'kllrshrk*', key: '', logLevel: 'true', timeout: 10
     }
 
     stage('Push image') {
