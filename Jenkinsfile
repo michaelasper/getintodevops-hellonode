@@ -21,7 +21,7 @@ node {
         twistlockScan ca: '', cert: '', compliancePolicy: 'warn', containerized: false, dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'kllrshrk*', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
     }
     
-    stage('Twistlock Publish){
+    stage('Twistlock Publish') {
           twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'kllrshrk*', key: '', logLevel: 'true', timeout: 10
     }
 
