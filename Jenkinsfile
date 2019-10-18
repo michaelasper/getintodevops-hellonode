@@ -14,11 +14,15 @@ node {
         app = docker.build("kllrshrk/getintodevops-hellonode")
     }
 
-    stage('Test image') {
+    stage('Twistlock Scan') {
         /* We test our image with a simple smoke test:
          * Run a curl inside the newly-build Docker image */
         
         twistlockScan ca: '', cert: '', compliancePolicy: 'warn', containerized: false, dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 0, ignoreImageBuildTime: false, image: 'kllrshrk*', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
+    }
+    
+    stage('Twistlock Publish){
+          twistlockPublish ca: '', cert: '', dockerAddress: 'unix:///var/run/docker.sock', image: 'kllrshrk*', key: '', logLevel: 'true', timeout: 10
     }
 
     stage('Push image') {
